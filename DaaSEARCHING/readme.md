@@ -1,0 +1,1 @@
+This project consists of developing a search engine using JAVA by applying IRM algorithms.
