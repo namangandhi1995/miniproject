@@ -1,0 +1,50 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+
+public class searching extends JFrame implements ActionListener {
+	
+	   JTextField tf1;
+	    JButton btn1;
+	    
+	    searching()
+	    {
+
+	        setVisible(true);
+
+	        setSize(1000, 1000);
+
+	       setLayout(null);
+
+	       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    tf1 = new JTextField();
+	    btn1= new JButton("Search");
+	    tf1.setBounds(500, 250, 400, 30);
+	    btn1.setBounds(600, 300, 150, 30);
+	    add(tf1);
+	    add(btn1);
+	   }
+
+		/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		// TODO Auto-generated method stub
+		new searching();
+
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
