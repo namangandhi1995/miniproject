@@ -13,6 +13,7 @@ public class searching extends JFrame implements ActionListener {
 	
 	   JTextField tf1;
 	    JButton btn1;
+		public static String s1;
 	    
 	    searching()
 	    {
@@ -31,30 +32,36 @@ public class searching extends JFrame implements ActionListener {
 	    btn1.setBounds(600, 300, 150, 30);
 	    add(tf1);
 	    add(btn1);
+	   
 	   }
 
 		/**
 	 * @param args
 	 */
-	    public void actionPerformed(ActionEvent e)
+	    public  void actionPerformed(ActionEvent e)
 	     {
 
 	        if (e.getSource() == btn1)
 	         {
-	        	
+	        	 String s1= tf1.getText();
+	        	 System.out.println(s1);
 	           	setVisible(false);
 	           	retrieved obj=new retrieved();
 	           	obj.setVisible(true);
-	        	// JOptionPane.showMessageDialog(btn1, "Seaching");
-
+	        	// JOptionPane.showMessageDialog(btn1, "Searching");
+      
 	         }
 	      }
+	    public static String kuhaName()
+	    {
+	        return s1;
+		         
+	    }
 	public static void main(String[] args) {
 		
 		// TODO Auto-generated method stub
 		new searching();
-
-
+		
 	}
 
 
