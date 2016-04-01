@@ -46,13 +46,13 @@ public class searching extends JFrame implements ActionListener {
 	        	 String s1= tf1.getText();
 	        	 System.out.println(s1);
 	           	setVisible(false);
-	           	retrieved obj=new retrieved();
+	           	retrieved obj=new retrieved(s1);
 	           	obj.setVisible(true);
 	        	// JOptionPane.showMessageDialog(btn1, "Searching");
       
 	         }
 	      }
-	    public static String kuhaName()
+	    public static String get()
 	    {
 	        return s1;
 		         

@@ -8,7 +8,7 @@ import javax.swing.JTextArea;
 
 public class retrieved extends JFrame {
 	 JLabel l1;
-  retrieved()
+  retrieved(String s1)
   {
        // setVisible(true);
        
@@ -31,8 +31,7 @@ public class retrieved extends JFrame {
        int n,y;
        n=100;
        y=100;
-      /* searching obj= new searching();*/
-       String s1 = searching.get();
+      
        File dir= new File(s1);
 		for(File f: dir.listFiles()){
 			if(f.getName().contains(".pdf")){
