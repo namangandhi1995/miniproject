@@ -33,9 +33,8 @@ public class retrieved extends JFrame  {
        int n,y,c=0;
        n=100;
        y=100;
-      
        File dir= new File(s1);
-		for( File f: dir.listFiles()){
+    	for( File f: dir.listFiles()){
 			if(f.getName().contains(".pdf")|| f.getName().contains(".txt")|| f.getName().contains(".doc")||f.getName().contains(".docx")){
 				
 				 l1 = new JLabel(f.getName());
