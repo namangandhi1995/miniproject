@@ -18,9 +18,9 @@ public class searching extends JFrame implements ActionListener {
 	    searching()
 	    {
 
-	        setVisible(true);
+	        
 
-	        setSize(1000, 1000);
+	        setSize(2000, 2000);
 
 	       setLayout(null);
 
@@ -32,7 +32,7 @@ public class searching extends JFrame implements ActionListener {
 	    btn1.setBounds(600, 300, 150, 30);
 	    add(tf1);
 	    add(btn1);
-	   
+	    setVisible(true);
 	   }
 
 		/**

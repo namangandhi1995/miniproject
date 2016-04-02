@@ -6,7 +6,7 @@ public class test {
 
 	public static void main(String[] args) {
 
-		try (BufferedReader br = new BufferedReader(new FileReader("C:/Users/NAMAN/Desktop/hackathon/g.txt")))
+		try (BufferedReader br = new BufferedReader(new FileReader("H:/eclipse/files/cv.docx")))
 		{
 
 			String sCurrentLine;
