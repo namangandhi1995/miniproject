@@ -16,8 +16,8 @@ import javax.swing.JTextField;
 
 public class retrieved extends JFrame implements ActionListener {
 	 JLabel l1;
-	 JTextField tf1;
-	    JButton btn1;
+	// JTextField tf1;
+	  //  JButton btn1;
 	    public static String s2;
   retrieved( final String s1)
   {
@@ -25,13 +25,13 @@ public class retrieved extends JFrame implements ActionListener {
         setSize(2000, 2000);
 
        setLayout(null);
-       tf1 = new JTextField();
+     /*  tf1 = new JTextField();
 	    btn1= new JButton("Search");
 	    btn1.addActionListener(this);
 	    tf1.setBounds(200, 30, 250, 30);
 	    btn1.setBounds(500, 30, 100, 30);
 	    add(tf1);
-	    add(btn1);
+	    add(btn1);*/
        l1 = new JLabel("Retrieved Documents");
 
        l1.setForeground(Color.blue);
@@ -80,7 +80,7 @@ public class retrieved extends JFrame implements ActionListener {
 			            }
 			}
 		}
-			
+/*			
   public  void actionPerformed(ActionEvent e)
   {
 
@@ -102,6 +102,11 @@ public class retrieved extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
       new retrieved(s2);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

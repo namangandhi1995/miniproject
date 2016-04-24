@@ -18,9 +18,9 @@ public class searching extends JFrame implements ActionListener {
 	    searching()
 	    {
 
-	        
+	        setVisible(true);
 
-	        setSize(2000, 2000);
+	        setSize(1000, 1000);
 
 	       setLayout(null);
 
@@ -32,7 +32,7 @@ public class searching extends JFrame implements ActionListener {
 	    btn1.setBounds(600, 300, 150, 30);
 	    add(tf1);
 	    add(btn1);
-	    setVisible(true);
+	   
 	   }
 
 		/**
@@ -44,7 +44,7 @@ public class searching extends JFrame implements ActionListener {
 	        if (e.getSource() == btn1)
 	         {
 	        	 String s1= tf1.getText();
-	        	 System.out.println(s1);
+	        	// System.out.println(s1);
 	           	setVisible(false);
 	           	retrieved obj=new retrieved(s1);
 	           	obj.setVisible(true);
@@ -52,7 +52,7 @@ public class searching extends JFrame implements ActionListener {
       
 	         }
 	      }
-	   
+	    
 	public static void main(String[] args) {
 		
 		// TODO Auto-generated method stub

@@ -1,23 +1,44 @@
- import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
+import java.util.ArrayList;
+import org.apache.commons.io.FileUtils;
 
+/**
+ *
+ * @author Mohammad Faisal
+ */
 public class test {
 
-	public static void main(String[] args) {
+public static void main(String[] args) throws IOException {
 
-		try (BufferedReader br = new BufferedReader(new FileReader("H:/eclipse/files/cv.docx")))
-		{
+    String textToMatch = "My name";
+    ArrayList<String> paths = new ArrayList<String>();
+    String content;
+    int found = 0;
+    int notFound = 0;
+    FilenameFilter filter = new FilenameFilter() {
+        public boolean accept(File dir, String name) {
+            return name.endsWith(".txt");
+        }
+    };
 
-			String sCurrentLine;
-
-			while ((sCurrentLine = br.readLine()) != null) {
-				System.out.println(sCurrentLine);
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} 
-
-	}
+    File path = new File("C:/Users/NAMAN/Desktop/hackathon");
+    File[] listOfFiles = path.listFiles(filter);
+    for (File file : listOfFiles) {
+        content = FileUtils.readFileToString(file);
+        if (content.contains(textToMatch)) {
+            //System.out.println("Found in: " + file.getAbsolutePath());
+            paths.add(file.getAbsolutePath());
+            found++;
+        } else {
+            //System.out.println("No found\n" + content);
+            notFound++;
+        }
+    }
+    for (String pth : paths) {
+        System.out.println(pth);
+    }
+    System.out.println("Found in " + found + " files.\nNot found in " + notFound + " files.");
+}
 }
