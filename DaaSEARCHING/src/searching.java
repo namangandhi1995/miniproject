@@ -1,5 +1,7 @@
+import java.awt.Canvas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,9 +20,9 @@ public class searching extends JFrame implements ActionListener {
 	    searching()
 	    {
 
-	        setVisible(true);
-
-	        setSize(1000, 1000);
+	    	Canvas c = new Canvas();
+	    	
+	        setSize(2000, 2000);
 
 	       setLayout(null);
 
@@ -32,7 +34,7 @@ public class searching extends JFrame implements ActionListener {
 	    btn1.setBounds(600, 300, 150, 30);
 	    add(tf1);
 	    add(btn1);
-	   
+	    setVisible(true);
 	   }
 
 		/**
@@ -44,15 +46,21 @@ public class searching extends JFrame implements ActionListener {
 	        if (e.getSource() == btn1)
 	         {
 	        	 String s1= tf1.getText();
-	        	// System.out.println(s1);
+	        	 System.out.println(s1);
 	           	setVisible(false);
-	           	retrieved obj=new retrieved(s1);
+	           	retrieved obj = null;
+				try {
+					obj = new retrieved(s1);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 	           	obj.setVisible(true);
 	        	// JOptionPane.showMessageDialog(btn1, "Searching");
       
 	         }
 	      }
-	    
+	   
 	public static void main(String[] args) {
 		
 		// TODO Auto-generated method stub

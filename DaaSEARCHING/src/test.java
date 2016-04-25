@@ -4,15 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.apache.commons.io.FileUtils;
 
-/**
- *
- * @author Mohammad Faisal
- */
+
 public class test {
 
 public static void main(String[] args) throws IOException {
 
-    String textToMatch = "My name";
+    String textToMatch = "eelo";
     ArrayList<String> paths = new ArrayList<String>();
     String content;
     int found = 0;
@@ -23,7 +20,7 @@ public static void main(String[] args) throws IOException {
         }
     };
 
-    File path = new File("C:/Users/NAMAN/Desktop/hackathon");
+    File path = new File("H:/eclipse/files");
     File[] listOfFiles = path.listFiles(filter);
     for (File file : listOfFiles) {
         content = FileUtils.readFileToString(file);

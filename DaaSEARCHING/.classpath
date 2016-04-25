@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="itextpdf-5.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/NAMAN/workspace/DaaSEARCHING/src/commons-io-2.5/commons-io-2.5.jar"/>
+	<classpathentry kind="lib" path="H:/eclipse/pdfbox-app-2.0.0.jar" sourcepath="H:/eclipse/pdfbox-app-2.0.0.jar"/>
+	<classpathentry kind="lib" path="H:/miniproject/DaaSEARCHING/src/commons-io-2.5/commons-io-2.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
