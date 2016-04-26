@@ -1,41 +1,58 @@
-import java.io.File;
-import java.io.FilenameFilter;
-import java.io.IOException;
-import java.util.ArrayList;
-import org.apache.commons.io.FileUtils;
+import java.io.BufferedReader;
+
+import java.io.FileInputStream;
+
+
+import java.io.InputStreamReader;
+
+
 
 
 public class test {
 
-public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
-    String textToMatch = "eelo";
-    ArrayList<String> paths = new ArrayList<String>();
-    String content;
-    int found = 0;
-    int notFound = 0;
-    FilenameFilter filter = new FilenameFilter() {
-        public boolean accept(File dir, String name) {
-            return name.endsWith(".txt");
-        }
-    };
+        String path = "H:/eclipse/files/"; //ADD YOUR PATH HERE
+        String fileName = "g.txt";
+        String testWord = "heelo abc"; //CHANGE THIS IF YOU WANT
+        int tLen = testWord.length();
+        int wordCntr = 0;
+        String file = path + fileName;
+        boolean check;
 
-    File path = new File("H:/eclipse/files");
-    File[] listOfFiles = path.listFiles(filter);
-    for (File file : listOfFiles) {
-        content = FileUtils.readFileToString(file);
-        if (content.contains(textToMatch)) {
-            //System.out.println("Found in: " + file.getAbsolutePath());
-            paths.add(file.getAbsolutePath());
-            found++;
-        } else {
-            //System.out.println("No found\n" + content);
-            notFound++;
+        try{
+            FileInputStream fstream = new FileInputStream(file);
+            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+            String strLine;        
+            //Read File Line By Line
+            while((strLine = br.readLine()) != null){                
+                //check to see whether testWord occurs at least once in the line of text
+                check = strLine.toLowerCase().contains(testWord.toLowerCase());
+                if(check){                    
+                    //get the line, and parse its words into a String array
+                    String[] lineWords = strLine.split("\\s+");                    
+                    for(String w : lineWords){
+                        //first see if the word is as least as long as the testWord
+                        if(w.length() >= tLen){
+                            /*
+                            1) grab the specific word, minus whitespace
+                            2) check to see whether the first part of it having same length
+                                as testWord is equivalent to testWord, ignoring case
+                            */
+                            String word = w.substring(0,tLen).trim();                                                        
+                            if(word.equalsIgnoreCase(testWord)){                                
+                                wordCntr++;
+                            }                            
+                        }
+                    }                    
+                }   
+            }    
+            
+            System.out.println("total is: " + wordCntr);
+        //Close the input stream
+        br.close();
+        } catch(Exception e){
+            e.printStackTrace();
         }
     }
-    for (String pth : paths) {
-        System.out.println(pth);
-    }
-    System.out.println("Found in " + found + " files.\nNot found in " + notFound + " files.");
-}
 }

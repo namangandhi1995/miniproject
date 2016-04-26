@@ -6,9 +6,12 @@ import java.awt.event.MouseEvent;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -150,21 +153,29 @@ public class searched extends JFrame implements ActionListener {
 				            }
 				            });
 */
-				  String textToMatch = s1;
-				    ArrayList<String> paths = new ArrayList<String>();
-				    String content;
-				    int found = 0;
-				    int notFound = 0;
+				//  String textToMatch = s1;
+				   ArrayList<String> paths = new ArrayList<String>();
+				  //  String content;
+				   // int found = 0;
+				   // int notFound = 0;
+       //ADD YOUR PATH HERE
+       String fileName = "new.doc";
+       String count;
+       String testWord = "Heelo"; //CHANGE THIS IF YOU WANT
+       int tLen = testWord.length();
+       int wordCntr = 0;
+       String files= dir.dir_path + fileName;
+       boolean check;
 				    FilenameFilter filter = new FilenameFilter() {
 				        public boolean accept(File dir, String name) {
-				            return (name.endsWith(".txt") || name.endsWith(".doc") || name.endsWith(".docx"));
+				            return (name.endsWith(".txt") || name.endsWith(".doc"));
 				        }
 				    };
 
 				    File path = new File(dir.dir_path);
 				    File[] listOfFiles = path.listFiles(filter);
 				    for (File file : listOfFiles) {
-				        content = FileUtils.readFileToString(file);
+				       /*content = FileUtils.readFileToString(file);
 				        if (content.contains(textToMatch)) {
 				            //System.out.println("Found in: " + file.getAbsolutePath());
 				            paths.add(file.getAbsolutePath());
@@ -172,9 +183,65 @@ public class searched extends JFrame implements ActionListener {
 				        } else {
 				            //System.out.println("No found\n" + content);
 				            notFound++;
+				        }*/
+				        try{
+				            FileInputStream fstream = new FileInputStream(file.getAbsolutePath());
+				            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+				            String strLine;        
+				            //Read File Line By Line
+				            while((strLine = br.readLine()) != null){                
+				                //check to see whether testWord occurs at least once in the line of text
+				                check = strLine.toLowerCase().contains(testWord.toLowerCase());
+				                if(check){                    
+				                    //get the line, and parse its words into a String array
+				                    String[] lineWords = strLine.split("\\s+");                    
+				                    for(String w : lineWords){
+				                        //first see if the word is as least as long as the testWord
+				                        if(w.length() >= tLen){
+				                            /*
+				                            1) grab the specific word, minus whitespace
+				                            2) check to see whether the first part of it having same length
+				                                as testWord is equivalent to testWord, ignoring case
+				                            */
+				                            String word = w.substring(0,tLen).trim();                                                        
+				                            if(word.equalsIgnoreCase(testWord)){                                
+				                                wordCntr++;
+				                            }                            
+				                        }
+				                    }                    
+				                }   
+				            } 
+				            if(wordCntr>0)
+				            {
+				            	l1 = new JLabel(file.getAbsolutePath());
+								
+							     l1.setForeground(Color.green);
+
+						       l1.setFont(new Font("Serif", Font.BOLD, 20));
+						      
+						       n=n+50;
+						       y=y+50;
+						       l1.setBounds(200, n, 400, y);  
+						       
+						       count = Integer.toString(wordCntr);
+						       JLabel l2 = new JLabel(count);
+								
+							     l2.setForeground(Color.green);
+
+						       l2.setFont(new Font("Serif", Font.BOLD, 20));
+						       l2.setBounds(600, n, 800, y);  
+						       add(l2);
+						       add(l1);
+				            System.out.println("total is: " + wordCntr);
+				            wordCntr=0;
+				            }
+				        //Close the input stream
+				        br.close();
+				        } catch(Exception e){
+				            e.printStackTrace();
 				        }
 				    }
-				    for (String pth : paths) {
+				  /*  for (String pth : paths) {
 				        System.out.println(pth);
 				        l1 = new JLabel(pth);
 						
@@ -188,7 +255,7 @@ public class searched extends JFrame implements ActionListener {
 					       add(l1);
 					      
 				    }
-				    System.out.println("Found in " + found + " files.\nNot found in " + notFound + " files.");
+				   */
 			}
 		
 		
