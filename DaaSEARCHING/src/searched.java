@@ -161,7 +161,7 @@ public class searched extends JFrame implements ActionListener {
 				        }
 				    };
 
-				    File path = new File("H:/eclipse/files");
+				    File path = new File(dir.dir_path);
 				    File[] listOfFiles = path.listFiles(filter);
 				    for (File file : listOfFiles) {
 				        content = FileUtils.readFileToString(file);

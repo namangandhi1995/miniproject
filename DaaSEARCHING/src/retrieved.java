@@ -24,7 +24,7 @@ public class retrieved extends JFrame implements ActionListener {
 	    public static String s2;
   retrieved( final String s1) throws IOException
   {
-	  
+	  new dir(s1);
 	  setVisible(true);
         setSize(2000, 2000);
         JFrame frame = new JFrame();
