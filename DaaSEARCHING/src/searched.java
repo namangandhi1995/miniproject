@@ -159,12 +159,15 @@ public class searched extends JFrame implements ActionListener {
 				   // int found = 0;
 				   // int notFound = 0;
        //ADD YOUR PATH HERE
-       String fileName = "new.doc";
+      // String fileName = "new.doc";
        String count;
-       String testWord = "Heelo"; //CHANGE THIS IF YOU WANT
-       int tLen = testWord.length();
+     //  String testWord = "Heelo"; //CHANGE THIS IF YOU WANT
+    //   int tLen = testWord.length();
+       int tLen=s1.length();
+       String str = "This is a simple sentence";
+   	String[] strgs = s1.split(" ");
        int wordCntr = 0;
-       String files= dir.dir_path + fileName;
+     //  String files= dir.dir_path + fileName;
        boolean check;
 				    FilenameFilter filter = new FilenameFilter() {
 				        public boolean accept(File dir, String name) {
@@ -184,6 +187,8 @@ public class searched extends JFrame implements ActionListener {
 				            //System.out.println("No found\n" + content);
 				            notFound++;
 				        }*/
+				    	for(int i=0;i<strgs.length;i++){
+				    	
 				        try{
 				            FileInputStream fstream = new FileInputStream(file.getAbsolutePath());
 				            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
@@ -191,20 +196,20 @@ public class searched extends JFrame implements ActionListener {
 				            //Read File Line By Line
 				            while((strLine = br.readLine()) != null){                
 				                //check to see whether testWord occurs at least once in the line of text
-				                check = strLine.toLowerCase().contains(testWord.toLowerCase());
+				                check = strLine.toLowerCase().contains(strgs[i].toLowerCase());
 				                if(check){                    
 				                    //get the line, and parse its words into a String array
 				                    String[] lineWords = strLine.split("\\s+");                    
 				                    for(String w : lineWords){
 				                        //first see if the word is as least as long as the testWord
-				                        if(w.length() >= tLen){
+				                        if(w.length() >= strgs[i].length()){
 				                            /*
 				                            1) grab the specific word, minus whitespace
 				                            2) check to see whether the first part of it having same length
 				                                as testWord is equivalent to testWord, ignoring case
 				                            */
-				                            String word = w.substring(0,tLen).trim();                                                        
-				                            if(word.equalsIgnoreCase(testWord)){                                
+				                            String word = w.substring(0,strgs[i].length()).trim();                                                        
+				                            if(word.equalsIgnoreCase(strgs[i])){                                
 				                                wordCntr++;
 				                            }                            
 				                        }
@@ -240,6 +245,7 @@ public class searched extends JFrame implements ActionListener {
 				        } catch(Exception e){
 				            e.printStackTrace();
 				        }
+				    }
 				    }
 				  /*  for (String pth : paths) {
 				        System.out.println(pth);

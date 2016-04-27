@@ -13,8 +13,8 @@ public class test {
 	public static void main(String[] args) {
 
         String path = "H:/eclipse/files/"; //ADD YOUR PATH HERE
-        String fileName = "g.txt";
-        String testWord = "heelo abc"; //CHANGE THIS IF YOU WANT
+        String fileName = "dxgfcgf.txt";
+        String testWord = "noida"; //CHANGE THIS IF YOU WANT
         int tLen = testWord.length();
         int wordCntr = 0;
         String file = path + fileName;
