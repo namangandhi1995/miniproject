@@ -28,7 +28,7 @@ public class searching extends JFrame implements ActionListener {
 
 	       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    tf1 = new JTextField();
-	    btn1= new JButton("Search");
+	    btn1= new JButton("Enter Directory");
 	    btn1.addActionListener(this);
 	    tf1.setBounds(500, 250, 400, 30);
 	    btn1.setBounds(600, 300, 150, 30);

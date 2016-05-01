@@ -24,6 +24,7 @@ public class SelectDirectory extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+    	String str;
         chooser = new JFileChooser(); 
         chooser.setCurrentDirectory(new java.io.File("."));
         chooser.setDialogTitle(choosertitle);
@@ -31,9 +32,10 @@ public class SelectDirectory extends JPanel implements ActionListener {
         chooser.setAcceptAllFileFilterUsed(true);
 
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) { 
-            System.out.println("getCurrentDirectory(): " + 
-                                chooser.getCurrentDirectory());
-            System.out.println("getSelectedFile() : " +  chooser.getSelectedFile());
+           /* System.out.println("getCurrentDirectory(): " + 
+                                chooser.getCurrentDirectory());*/
+         /*   System.out.println("getSelectedFile() : " +  chooser.getSelectedFile());*/
+        	System.out.print(chooser.getSelectedFile());
             //
             //
             //
@@ -52,9 +54,9 @@ public class SelectDirectory extends JPanel implements ActionListener {
         }
     }
 
-    public Dimension getPreferredSize(){
+  /*  public Dimension getPreferredSize(){
         return new Dimension(200, 200);
-    }
+    }*/
 
     public static void main(String s[]) {
         JFrame frame = new JFrame("");

@@ -36,19 +36,18 @@ public class searched extends JFrame implements ActionListener {
         setSize(2000, 2000);
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
-
-        // add something to you panel...
-        // panel.add(...);
+//add something to you panel...
+      //  panel.add(...);
 
         // add the panel to a JScrollPane
-       // JScrollPane jScrollPane = new JScrollPane(panel);
+       JScrollPane jScrollPane = new JScrollPane(panel);
         // only a configuration to the jScrollPane...
-      //  jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-//        jScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+      jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+ jScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
         // Then, add the jScrollPane to your frame
-      //  frame.getContentPane().add(jScrollPane);
-      // setLayout(null);
+      frame.getContentPane().add(jScrollPane);
+      setLayout(null);
        tf1 = new JTextField();
 	    btn1= new JButton("Search");
 	    btn1.addActionListener(this);
@@ -219,6 +218,7 @@ public class searched extends JFrame implements ActionListener {
 				            if(wordCntr>0)
 				            {
 				            	l1 = new JLabel(file.getAbsolutePath());
+				            	 final String x=file.getAbsolutePath();
 								
 							     l1.setForeground(Color.green);
 
@@ -236,7 +236,30 @@ public class searched extends JFrame implements ActionListener {
 						       l2.setFont(new Font("Serif", Font.BOLD, 20));
 						       l2.setBounds(600, n, 800, y);  
 						       add(l2);
+						       JLabel l3 = new JLabel(strgs[i]);
+						       l3.setForeground(Color.green);
+
+						       l3.setFont(new Font("Serif", Font.BOLD, 20));
+						       l3.setBounds(800, n, 1000, y);  
+						       add(l3);
 						       add(l1);
+						       l1.addMouseListener(new MouseAdapter() {
+						            public void mousePressed(MouseEvent me){
+						          	 
+						           if (Desktop.isDesktopSupported()) {
+						                try {
+						                    File myFile = new File(x);
+						                 System.out.println(x);
+						            
+						                    Desktop.getDesktop().open(myFile);
+						                } catch (Exception e) {
+						                    // no application registered for PDFs
+						                }
+						            }
+						            	
+						            }
+						            });
+
 				            System.out.println("total is: " + wordCntr);
 				            wordCntr=0;
 				            }

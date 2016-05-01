@@ -49,7 +49,7 @@ public class retrieved extends JFrame implements ActionListener {
 	    btn1.setBounds(500, 30, 100, 30);
 	   add(tf1);
 	   add(btn1);
-       l1 = new JLabel("Retrieved Documents");
+       l1 = new JLabel("Files in Directory");
 
        l1.setForeground(Color.blue);
 
@@ -133,7 +133,7 @@ public class retrieved extends JFrame implements ActionListener {
 				     
 					l1.addMouseListener(new MouseAdapter() {
 				            public void mousePressed(MouseEvent me){
-				           	 
+				          /* 	 
 				           if (Desktop.isDesktopSupported()) {
 				                try {
 				                    File myFile = new File( s1+"/"+x);
@@ -143,7 +143,7 @@ public class retrieved extends JFrame implements ActionListener {
 				                } catch (Exception e) {
 				                    // no application registered for PDFs
 				                }
-				            }
+				            }*/
 				            	
 				            }
 				            });
